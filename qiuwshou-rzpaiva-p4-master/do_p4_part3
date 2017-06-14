@@ -1,0 +1,21 @@
+
+ARGS=" "
+for entry in $3/*
+do
+	if [ -f "$entry" ];then
+		if [ "$entry" != "$2" ];then
+			ARGS="$ARGS $entry"
+		fi
+	fi
+done
+
+name=output/out_$4_$1
+if [[ -e $name ]] ; then
+    i=0
+    while [[ -e $name-$i ]] ; do
+        let i++
+    done
+    name=$name-$i
+fi
+echo ./p4 part3 $1 $2 $ARGS
+eval ./p4 part3 $1 $2 $ARGS > $name 

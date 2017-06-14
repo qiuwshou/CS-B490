@@ -1,0 +1,1 @@
+./p4 part4 $1 stitching_images/$2_1.png stitching_images/$2_2.png $3 
